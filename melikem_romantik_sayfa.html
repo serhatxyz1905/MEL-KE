@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Melikem 💌</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background: linear-gradient(to top left, #fff0f5, #ffe4e1);
+      text-align: center;
+      padding: 80px 20px;
+      overflow: hidden;
+      position: relative;
+    }
+    h1 {
+      font-size: 28px;
+      color: #8e24aa;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 18px;
+      color: #4e342e;
+      max-width: 600px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+    .buttons {
+      margin-top: 30px;
+    }
+    button {
+      font-size: 18px;
+      padding: 15px 30px;
+      margin: 10px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+    #yes {
+      background-color: #43a047;
+      color: white;
+    }
+    #no {
+      background-color: #e53935;
+      color: white;
+      position: absolute;
+    }
+    #message {
+      margin-top: 40px;
+      font-size: 22px;
+      font-weight: bold;
+      color: #880e4f;
+    }
+    #noMessage {
+      margin-top: 10px;
+      font-size: 16px;
+      color: #d32f2f;
+      height: 30px;
+    }
+    #photo {
+      margin-top: 20px;
+      max-width: 300px;
+      display: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <h1>Melikem 💞</h1>
+  <p>Bir gülüşünle dağıttın beni yine bugün...<br>
+  Ökküz gibi seviyom seni şerrefsizim.<br>
+  Allah çarpsın gülüşün dünyadaki ennnnnn güzel şey.<br>
+  Yazmayacam bi daha dedim ama bu yazmak sayılmaz bence hahaha 😅<br><br>
+  <strong>Şu bitirme işini bi yeniden gözden geçirsen be çatlak fıstık, olmaz mı?</strong></p>
+
+  <div class="buttons">
+    <button id="yes">Evet 💖</button>
+    <button id="no">Hayır ❌</button>
+  </div>
+
+  <div id="noMessage"></div>
+  <div id="message"></div>
+  <img id="photo" src="melikem.jpg" alt="Biz" />
+
+  <script>
+    const yesBtn = document.getElementById('yes');
+    const noBtn = document.getElementById('no');
+    const message = document.getElementById('message');
+    const noMessage = document.getElementById('noMessage');
+    const photo = document.getElementById('photo');
+
+    let noClickCount = 0;
+    const noMessages = [
+      "Emin misin? 😢",
+      "Bi daha düşün çatlağım...",
+      "Bence hayır demedin! 🙃",
+      "Senin hayır deyişin bile evet gibi 😘",
+      "Cidden mi? Hadi yaa...",
+      "Gözüm doldu şaka yapıyorsan söyle",
+      "O ‘hayır’ değildi bence 🙄",
+      "Fıstığım bak yanlışlık oldu galiba",
+      "Bak gidiyorum ama hâlâ bekliyorum...",
+      "Son kez soruyorum: Emin misin?"
+    ];
+
+    yesBtn.addEventListener('click', () => {
+      message.textContent = "Evet diyeceğini biliyordum çatlak fıstığımm 🫶";
+      photo.style.display = "block";
+      noBtn.style.display = "none";
+      noMessage.textContent = "";
+    });
+
+    noBtn.addEventListener('mouseover', () => {
+      if (noClickCount < 10) {
+        const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+        const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+        noBtn.style.left = `${x}px`;
+        noBtn.style.top = `${y}px`;
+        noMessage.textContent = noMessages[noClickCount];
+        noClickCount++;
+      } else {
+        noMessage.textContent = "Bak hâlâ buradayım çünkü seni seviyorum! 💘";
+      }
+    });
+  </script>
+</body>
+</html>
